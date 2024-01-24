@@ -6,7 +6,7 @@ go
 
 
 /*
-A ideia aqui é trienar todos os conceitos aprendidos
+A ideia aqui é treinar todos os conceitos aprendidos
 	crud
 	trigger
 	view
@@ -16,7 +16,7 @@ A ideia aqui é trienar todos os conceitos aprendidos
 
 
 Vou criar um BD de uma locadora de carros
-ela deve conter todos os carros (Marca, modelo, ano, preço)
+ela deve conter todos os carros (Marca, modelo, preço)
 na tabela de aluguel deve conter (valor do aluguel - que devera ser uma equação - localizaçao do veiculo)
 
 */
@@ -261,7 +261,146 @@ exec spCadCarros
 	'Volkswagen', 'Amarok',	 'R$70.978'
 go
 
+select * from Cliente
+go
+
+create or alter  procedure spCadCliente
+
+		(
+		@Nome			varchar (100),
+		@Estado			varchar (2),
+		@Cidade			varchar (100),
+		@Bairro			varchar (100),
+		@Rua				varchar (100),
+		@Numero		int
+		)
+	as
+		begin
+			insert into Cliente (Nome, Estado, Cidade, Bairro, Rua, Numero)
+				values (@Nome, @Estado,  @Cidade, @Bairro, @Rua, @Numero)
+		end
+go
 
 
-	select * from INFORMATION_SCHEMA.Table
+/*
+
+pesquisar bairros mais populosos de cada capital
+pesquisar a rua ou avenida da prefeitura e numero, mesmo que nao seja no mesmo bairro
+
+*/
+		-- São José do Rio Preto São Paulo SP
+exec spCadCliente
+	'Gabriel Oliveira', 'SP', 'São José do Rio Preto', 'Boa Vista', 'Silva Jardim', '1111'
+
+		-- 	Rio Branco	Acre	 AC	
+exec spCadCliente
+	'Tomas Hanks', 'AC', 'Rio Branco', 'Bosque', 'Av. Epaminondas Jácome', '1383' 
+
+		--Maceió	Alagoas	AL	
+exec spCadCliente
+	'Antonio Ramos', 'AL', 'Maceió', 'Benedito Bentes', 'R. Sá e Albuquerque', '235'
+
+		--Macapá	Amapá	AP	
+exec spCadCliente
+	'Reginaldo Janekinny', 'AP', 'Macapá', 'Buritizal', 'Av. Fab', '840'
+
+		--Manaus	 Amazonas	AM
+exec spCadCliente
+	'Richard Candy', 'AM', 'Manaus', 'Cidade Nova', 'R. Projetada 4', '4' 
+
+		-- Salvador	Bahia	BA
+exec spCadCliente
+	'Giovana Antonella', 'BA', 'Salvador', 'Cajazeiras', 'R. Carlos Gomes', '270'
+
+		-- Fortaleza	 Ceará	CE	
+exec spCadCliente
+	'Beth Fez', 'CE', 'Fortaleza', 'Mondubim', 'Rua São José', '01' 
+
+		-- Brasília	Distrito Federal	DF	
+exec spCadCliente
+	'Tarcisio Pai', 'DF', 'Brasilia', 'Ceilandia', 'Zona Cívico-Administrativa', '00'
+
+		-- Vitória	Espírito Santo	ES
+exec spCadCliente
+	'Tarcisio Junior', 'ES', 'Vitoria', 'Jardim Camburi', 'Av. Mal. Mascarenhas de Moraes', '1927'
+
+		-- Goiânia	Goiás	GO	
+exec spCadCliente
+	'Paula Fernanda', 'GO', 'Goiânia', 'Jardim América', 'Av. do Cerrado', '999'
+
+		-- São Luís	Maranhão	MA	
+exec spCadCliente
+	'Vera Fish', 'MA', 'São Luís', 'Cidade Operária', 'Av. Dom Pedro ll', '00'
+
+		-- Cuiabá	Mato Grosso	MT	
+exec spCadCliente
+	'Giovanna Tidone', 'MT', 'Cuiabá', 'Altos do Coxipó', 'Praça Alencastro', '158'
+
+		-- Campo Grande	Mato Grosso do Sul	 MS
+exec spCadCliente
+	'Sthephany Bryto', 'MS', 'Campo Grande', 'Aero Rancho', 'Av. Afonso Pena', '3297'
+
+		-- Belo Horizonte	Minas Gerais	MG	
+exec spCadCliente
+	'Fatima Bernardo', 'MG', 'Belo Horizonte', 'Sagrada Família', 'Av. Afonso Pena', '1212' 
+
+		-- Belém	Pará	PA	
+exec spCadCliente
+	'Joelma', 'PA', 'Belém', 'Curió-Utinga', 'Praça Dom Pedro II', '2'
+
+		-- João Pessoa	 Paraíba	 PB
+exec spCadCliente
+	'Renato Aragorn', 'PB', 'Jõao Pessoa', 'Mangabeira', 'Praça Pedro Américo', '70' 
+
+		-- Curitiba	Paraná	PR	
+exec spCadCliente
+	'Ximbinha', 'PR', 'Curitiba', 'Cidade Industrial', 'Av. Cândido de Abreu', '817' 
+
+		-- Recife	Pernambuco	PE	
+exec spCadCliente
+	'William Bonder', 'PE', 'Recife', 'Guabiraba', 'Cais do Apolo', '925'
+
+		-- Teresina	Piauí	PI	
+exec spCadCliente
+	'Visconde de Sabugosa', 'PI', 'Teresina', 'Itararé', 'Praça Marechal Deodoro', '860' 
+
+		-- Rio de Janeiro	Rio de Janeiro	RJ	
+exec spCadCliente
+	'Bob Burnquist', 'RJ',	'Rio de Janeiro', 'Campo Grande', 'R. Visc. de Jequitinhonha', '50' 
+
+		-- Natal	Rio Grande do Norte	RN	
+exec spCadCliente
+	'Hebert Viuana', 'RN', 'Natal', 'Felipe Camarão', 'R. Ulisses Caldas', '81' 
+
+		-- Porto Alegre	Rio Grande do Sul	RS	
+exec spCadCliente
+	'Paula Tuller', 'RS', 'Porto Alegre', 'Cohab Rubem Berta', 'R. Gen. João Manoel', '157'
+
+		-- Porto Velho	Rondônia	RO	
+exec spCadCliente
+	'Gloria Maria', 'RO', 'Porto Velho','Caiari', 'Av. Sete de Setembro', '237'
+
+		-- Boa Vista	Roraima	RR	
+exec spCadCliente
+	'Sidney Moreira', 'RR', 'Boa Vista', 'Pintolândia', 'R. Gen. Penha Brasil', '1011'
+
+		-- Florianópolis	Santa Catarina 	SC	
+exec spCadCliente
+	'Pedro Miau', 'SC', 'Florianopolis', 'Praia dos Ingleses', 'R. Conselheiro Mafra', '656' 
+
+		-- Aracaju	Sergipe	SE	
+exec spCadCliente
+	'Debora Faladela', 'SE', 'Aracaju', 'Santos Dumont', 'R. Frei Luiz Canolo de Noronha', '42'
+
+		-- Palmas	Tocantins	TO	
+exec spCadCliente
+	'Bento Hinoto', 'TO',	'Palmas', 'Aureny III', 'Av. Juscelino Kubitscheck', '28' 
+
+go
+
+
+	select * from INFORMATION_SCHEMA.COLUMNS
+	go
+
+	select * from Cliente
 	go
